@@ -6,8 +6,8 @@ LABEL maintainer="José-Luis guerrero <jlg@niva.no>"
 
 USER root
 
-RUN apt-get update
-RUN pip install --upgrade pip
+RUN sudo apt-get update
+RUN sudo pip install --upgrade pip
 RUN pip install pandas
 RUN pip install netCDF4
 RUN pip install xarray
