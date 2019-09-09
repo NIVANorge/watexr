@@ -1,5 +1,5 @@
 #Container with the required dependencies for the watexr project
-ARG BASE_CONTAINER=jupyter/datascience_notebook:82d1d0bf0867
+ARG BASE_CONTAINER=jupyter/datascience-notebook:82d1d0bf0867
 FROM $BASE_CONTAINER
 
 LABEL maintainer="José-Luis guerrero <jlg@niva.no>"
