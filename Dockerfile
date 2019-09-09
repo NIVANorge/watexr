@@ -7,11 +7,12 @@ LABEL maintainer="José-Luis guerrero <jlg@niva.no>"
 RUN pip install --upgrade pip
 
 USER root
-
 RUN sudo apt-get update
+
+USER $NB_UID
 RUN pip install pandas
 RUN pip install netCDF4
 RUN pip install xarray
 
-USER $NB_UID
+
 
