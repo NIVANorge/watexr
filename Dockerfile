@@ -14,3 +14,5 @@ RUN pip install pandas
 RUN pip install netCDF4
 RUN pip install xarray
 RUN pip install fabric2
+
+COPY ./Notebooks /home/$NB_UID/Notebooks/
