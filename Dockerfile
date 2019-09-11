@@ -16,5 +16,8 @@ RUN pip install xarray
 RUN pip install fabric2
 
 RUN ls -lah
+RUN echo $PWD
+RUN rm -r work
+RUN uname -a
 
-COPY ./Notebooks /home/$NB_UID/Notebooks
+COPY /home/jose-luis/Envs/watexr/notebooks/Notebooks /home/$NB_UID/Notebooks
