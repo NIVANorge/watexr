@@ -20,4 +20,4 @@ RUN echo $PWD
 RUN rm -r work
 RUN uname -a
 
-COPY /home/jose-luis/Envs/watexr/notebooks/Notebooks /home/$NB_UID/Notebooks
+COPY ~/Envs/watexr/notebooks/Notebooks /home/$NB_UID/Notebooks
