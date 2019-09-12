@@ -1,0 +1,9 @@
+- station:
+    buffer: 50000
+    epsg: 4326
+    station_id: 1
+    longitude: 5.5497054
+    latitude: 58.6703701
+    station_name: Håelva
+
+

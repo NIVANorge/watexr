@@ -1,0 +1,9 @@
+- station:
+    buffer: 100000
+    epsg: 4326
+    station_id: 1
+    longitude: 8.9795
+    latitude: 58.6687
+    station_name: Storelva
+
+

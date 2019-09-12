@@ -1,0 +1,88 @@
+- station:
+    buffer: 300000
+    epsg: 32632
+    latitude: 6642144.0
+    longitude: 600213.0
+    station_id: 12
+    station_name: Alna
+
+- station:
+    buffer: 175000
+    epsg: 32634
+    latitude: 7655122.68
+    longitude: 425205.11
+    station_id: 40
+    station_name: Målselva_v_Øverbygd
+
+- station:
+    buffer: 175000
+    epsg: 32634
+    latitude: 7680205.0
+    longitude: 400213.0
+    station_id: 41
+    station_name: Målselva_vGullhav
+
+- station:
+    buffer: 300000
+    epsg: 32632
+    latitude: 6826450.0
+    longitude: 327402.0
+    station_id: 22
+    station_name: Nausta
+
+- station:
+    buffer: 300000
+    epsg: 32632
+    latitude: 7030201.0
+    longitude: 569352.0
+    station_id: 24
+    station_name: Nidelva_(Trøndelag)
+
+- station:
+    buffer: 50000
+    epsg: 32632
+    latitude: 6599745.0
+    longitude: 325319.0
+    station_id: 20
+    station_name: Vikedalselva
+    
+- station:
+    buffer: 300000
+    epsg: 32632
+    latitude: 6487028.0
+    longitude: 325246.0
+    station_id: 18
+    station_name: Bjerkreimselva
+    
+- station:
+    buffer: 300000
+    epsg: 32632
+    latitude: 6948637.0
+    longitude: 477383.0
+    station_id: 23
+    station_name: Driva
+
+- station:
+    buffer: 300000
+    epsg: 32632
+    latitude: 6727293.0
+    longitude: 336048.0
+    station_id: 21
+    station_name: Vosso_(Bolstadelvi)
+
+    
+- station:
+    buffer: 310000
+    epsg: 32635
+    latitude: 7792121.0
+    longitude: 544057.0
+    station_id: 51
+    station_name: Tanaelva
+    
+- station:
+    buffer: 300000
+    epsg: 32632
+    latitude: 7149319.0
+    longitude: 635585.0
+    station_id: 9
+    station_name: Namsen

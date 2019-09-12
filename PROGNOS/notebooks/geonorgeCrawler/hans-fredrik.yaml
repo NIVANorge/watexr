@@ -1,0 +1,112 @@
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6558233
+    longitude: 310091
+    station_id: 3555
+    station_name: Breidtjern
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6671439
+    longitude: 332507
+    station_id: 4203
+    station_name: Bæreia
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6561016
+    longitude: 183749
+    station_id: 110
+    station_name: Flåte
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6621713
+    longitude: 282023
+    station_id: 137
+    station_name: Lyseren
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6622350
+    longitude: 235553
+    station_id: 5706
+    station_name: Røysjø
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6620746
+    longitude: 224023
+    station_id: 5742
+    station_name: Store_Øyvannet
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6617213
+    longitude: 234404
+    station_id: 5755
+    station_name: Suluvatn
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6597009
+    longitude: 183396
+    station_id: 6467
+    station_name: Svanstulvatnet
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 6686759
+    longitude: 350598
+    station_id: 4076
+    station_name: Tollreien
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 7746229
+    longitude: 1048961
+    station_id: 65082
+    station_name: Abborvatn
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 7742086
+    longitude: 1055026
+    station_id: 65124
+    station_name: Ellentjørn
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 7713886
+    longitude: 838700
+    station_id: 54372
+    station_name: Gearddosjavri
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 7735722
+    longitude: 1056444
+    station_id: 65164
+    station_name: Gjøkvatn
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 7777353
+    longitude: 1082544
+    station_id: 65244
+    station_name: Løken
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 7679839
+    longitude: 825856
+    station_id: 55096
+    station_name: Njukcajavri
+- station:
+    buffer: 30000
+    epsg: 32633
+    latitude: 7677330
+    longitude: 828110
+    station_id: 2235
+    station_name: Vuorasjavri

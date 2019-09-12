@@ -1,0 +1,7 @@
+- station:
+    buffer: 425000.0
+    epsg: 32633
+    latitude: 7674070
+    longitude: 643150
+    station_id: 29
+    station_name: Målselva

@@ -1,0 +1,8 @@
+- station:
+    buffer: 1000
+    epsg: 4326
+    latitude: 59.88929
+    longitude: 10.12331
+    station_id: 1
+    station_name: Adventelva
+
