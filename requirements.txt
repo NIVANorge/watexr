@@ -6,3 +6,5 @@ pandas
 xarray
 netCDF4
 fabric2
+nbgitpuller
+jupyterlab
