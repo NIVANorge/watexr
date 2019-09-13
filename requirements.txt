@@ -10,3 +10,13 @@ nbgitpuller
 jupyterlab
 xlrd
 seaborn
+gmaps 
+bs4
+parse
+pyyyaml
+shapely[vectorized]
+psycopg2
+google.api.core
+google.cloud
+google.cloud.storage
+lxml
