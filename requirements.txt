@@ -13,7 +13,7 @@ seaborn
 gmaps 
 bs4
 parse
-pyyyaml
+pyyaml
 shapely[vectorized]
 psycopg2
 google.api.core
