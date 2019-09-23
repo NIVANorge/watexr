@@ -8,8 +8,6 @@ import sys
 import json
 from subprocess import Popen, PIPE, CalledProcessError
 
-
-
 class gce_api:
     
     URI = 'https://www.googleapis.com'
@@ -24,19 +22,19 @@ class gce_api:
                    'instanceInfo':    'https://www.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instanceName}'
     }
     
-    def __init__(self,json_key,properties):
+    def __init__(self,json_key,properties,storage_key):
         
         self.properties = properties
         self.properties['keyFile'] = F'{os.path.join(self.properties["keyDir"],self.properties["instanceName"])}'
         self.properties['pubKeyFile'] = F'{self.properties["keyFile"] + ".pub"}'
         self.credentials = service_account.Credentials.from_service_account_file(json_key)
-        self.credentials_storage = service_account.Credentials.from_service_account_file('/home/jose-luis/Envs/gce_framework/code/keys/framework-storage.json')
+        self.credentials_storage = service_account.Credentials.from_service_account_file(storage_key)
         self.scoped_credentials = self.credentials.with_scopes(['https://www.googleapis.com/auth/cloud-platform'])
         self.storage_credentials = self.credentials_storage.with_scopes(['https://www.googleapis.com/auth/devstorage.full_control'])
         
         self.authed_session = AuthorizedSession(self.scoped_credentials)
         self.storage_session = AuthorizedSession(self.storage_credentials)
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS']='/home/jose-luis/Envs/gce_framework/code/keys/framework-storage.json'
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS']=storage_key
         self.storage_client = storage.Client() #GOOGLE_APPLICATION_CREDENTIALS should have been set as an environment variable. This is shit but storage_client here can't seem to accept the path to the json file
     
    

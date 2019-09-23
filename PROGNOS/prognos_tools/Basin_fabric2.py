@@ -106,10 +106,10 @@ rm -rf ./tmp
     
     vmScript=''
     
-    def __init__(self,json_key,properties):
+    def __init__(self,json_key,properties,storage_key='/home/jose-luis/Envs/gce_framework/code/keys/framework-storage.json'):
         self.saveFolder = './'
         self.vmScript=''
-        super().__init__(json_key,properties)
+        super().__init__(json_key,properties,storage_key)
         
         
     def setInstantiationDict(self):
