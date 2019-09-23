@@ -1,8 +1,0 @@
-- station:
-    buffer: 20000
-    epsg: 3035
-    station_id: 1
-    latitude: 3921738
-    longitude: 4217991
-    station_name: Birkenes
-

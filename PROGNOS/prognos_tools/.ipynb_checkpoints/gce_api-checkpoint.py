@@ -1,7 +1,7 @@
 from google.oauth2 import service_account
 from google.auth.transport.requests import AuthorizedSession
 from google.cloud import storage
-from fabric import Connection
+from fabric2 import Connection
 import time
 import os
 import sys
@@ -25,8 +25,9 @@ class gce_api:
     }
     
     def __init__(self,json_key,properties):
+        
         self.properties = properties
-        self.properties['keyFile'] = F'{os.path.join(self.properties["keyDir"],self.properties["username"])}'
+        self.properties['keyFile'] = F'{os.path.join(self.properties["keyDir"],self.properties["instanceName"])}'
         self.properties['pubKeyFile'] = F'{self.properties["keyFile"] + ".pub"}'
         self.credentials = service_account.Credentials.from_service_account_file(json_key)
         self.credentials_storage = service_account.Credentials.from_service_account_file('/home/jose-luis/Envs/gce_framework/code/keys/framework-storage.json')

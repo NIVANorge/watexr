@@ -1,7 +1,7 @@
 from google.oauth2 import service_account
 from google.auth.transport.requests import AuthorizedSession
 from google.cloud import storage
-from fabric import Connection
+from fabric2 import Connection
 import time
 import os
 import sys

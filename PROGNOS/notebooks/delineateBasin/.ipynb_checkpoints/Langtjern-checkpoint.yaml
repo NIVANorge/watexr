@@ -1,7 +1,0 @@
-- station:
-    station_id: 108
-    station_name: Langtjern
-    longitude: 9.7266598416
-    latitude: 60.3724626431
-    epsg: 4326
-    buffer: 5000

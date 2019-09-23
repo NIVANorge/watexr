@@ -181,12 +181,15 @@ rm -rf ./tmp
     def getNames(self,info):
         return [i['name'] for i in info['items']]
         
-    def instantiate(self,wait=False):
+    def instantiate(self,wait=False,ownDict=False,inst={}):
         info = self.get('instances')
         if self.properties['instanceName'] not in self.getNames(info):
             self.generateSSHKey()
             #display(self.pub)
             instantiationDict = self.setInstantiationDict()
+            if ownDict == True:
+                instantiationDict = inst
+                instantiationDict['metadata']['items'][0]["value"] = self.properties["username"] + ':' + self.pub
             info = self.post('instances',json=instantiationDict)
             display("Creating instance...",info['operationType'],info['targetLink'])
         
