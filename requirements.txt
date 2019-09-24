@@ -20,3 +20,4 @@ google.api.core
 google.cloud
 google.cloud.storage
 lxml
+miniupnpc
