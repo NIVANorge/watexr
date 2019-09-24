@@ -186,10 +186,15 @@ rm -rf ./tmp
         if self.properties['instanceName'] not in self.getNames(info):
             self.generateSSHKey()
             #display(self.pub)
-            instantiationDict = self.setInstantiationDict()
+            
             if ownDict == True:
                 instantiationDict = inst
+                display('blabla',instantiationDict)
                 instantiationDict['metadata']['items'][0]["value"] = self.properties["username"] + ':' + self.pub
+                display('new one',instantiationDict)
+            else:
+                instantiationDict = self.setInstantiationDict()
+                
             info = self.post('instances',json=instantiationDict)
             display("Creating instance...",info['operationType'],info['targetLink'])
         
