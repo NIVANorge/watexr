@@ -1,4 +1,9 @@
 #! /bin/bash
+pip install google.api.core
+pip install google.cloud
+pip install bs4
+pip install google.cloud.storage
+pip install fabric2
 jupyter nbextension enable --py widgetsnbextension
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter lab build
