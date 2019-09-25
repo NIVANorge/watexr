@@ -1,4 +1,5 @@
 jupyterhub==0.9.6
+jupyterlab
 numpy
 scipy
 matplotlib
@@ -7,7 +8,6 @@ xarray
 netCDF4
 fabric2
 nbgitpuller
-jupyterlab
 xlrd
 seaborn
 gmaps 
