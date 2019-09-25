@@ -1,5 +1,4 @@
 jupyterhub==0.9.6
-jupyterlab==1.1.4
 numpy
 scipy
 matplotlib
@@ -10,7 +9,7 @@ fabric2
 nbgitpuller
 xlrd
 seaborn
-gmaps 
+gmaps==0.8.4
 bs4
 parse
 pyyaml
