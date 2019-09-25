@@ -1,6 +1,4 @@
 #! /bin/bash
 jupyter nbextension enable --py widgetsnbextension
-#jupyter labextension install @jupyter-widgets/jupyterlab-manager@0.38
-#jupyter lab build
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter lab build
