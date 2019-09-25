@@ -1,3 +1,8 @@
 #! /bin/bash
+jupyter labextension install @jupyterlab/vega3-extension --no-build && jupyter labextension install @jupyterlab/git --no-build && jupyter labextension install @jupyterlab/hub-extension --no-build && jupyter labextension install jupyter-matplotlib --no-build && jupyter labextension install jupyter-leaflet --no-build && jupyter labextension install qgrid --no-build && jupyter labextension install @jupyterlab/geojson-extension --no-build && jupyter labextension install @pyviz/jupyterlab_pyviz --no-build && #    jupyter labextension install jupyterlab_voyager --no-build && jupyter labextension install jupyterlab-spreadsheet --no-build && jupyter labextension install @jupyterlab/shortcutui --no-build && jupyter labextension install dask-labextension --no-build && jupyter labextension install @ryantam626/jupyterlab_code_formatter --no-build && jupyter labextension install jupyterlab-drawio --no-build && jupyter lab clean && jupyter lab build && jupyter lab clean && jlpm cache clean && npm cache clean --force && rm -rf $HOME/.node-gyp && rm -rf $HOME/.local && 
+    
+jupyter serverextension enable --py jupyterlab_git --sys-prefix && jupyter serverextension enable --py jupyterlab_code_formatter && jupyter serverextension enable --py --sys-prefix dask_labextension && jupyter nbextension enable --py --sys-prefix ipyleaflet
+    
+jupyter nbextension enable --py widgetsnbextension
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter lab build
