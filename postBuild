@@ -6,6 +6,7 @@ pip install google.cloud.storage
 pip install fabric2
 jupyter nbextension enable --py widgetsnbextension
 jupyter labextension install @jupyter-widgets/jupyterlab-manager --debug
+jupyter lab build --minimize=false
 #npm install -g npm@next
 #jupyter labextension install @jupyter-widgets/jupyterlab-manager --debug
 #jupyter lab build
