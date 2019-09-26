@@ -9,7 +9,6 @@ fabric2
 nbgitpuller
 xlrd
 seaborn
-gmaps==0.8.4
 bs4
 parse
 pyyaml
