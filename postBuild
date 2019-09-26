@@ -6,7 +6,7 @@ pip install google.cloud.storage
 pip install fabric2
 jupyter nbextension enable --py widgetsnbextension
 jupyter labextension install @jupyter-widgets/jupyterlab-manager --debug
-pip install gmaps
+pip install gmaps==0.9.0
 jupyter lab build --minimize=False
 #npm install -g npm@next
 #jupyter labextension install @jupyter-widgets/jupyterlab-manager --debug
