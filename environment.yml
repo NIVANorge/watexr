@@ -2,7 +2,6 @@ dependencies:
   - jupyterhub==0.9.6 
   - jupyterlab==1.1.4
   - matplotlib
-  - gmaps
   - numpy
   - scipy
   - pandas
