@@ -1,0 +1,14 @@
+- station:
+    buffer: 100000
+    epsg: 4326
+    latitude: 59.4392814052
+    longitude: 10.7438771059
+    station_id: 0
+    station_name: Vansjø
+- station:
+    buffer: 55000
+    epsg: 4326
+    latitude: 59.38973
+    longitude: 10.72994
+    station_id: 1
+    station_name: Vansjo-sink
