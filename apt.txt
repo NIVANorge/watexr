@@ -1,4 +1,4 @@
 curl
-libnetcdf-dev
-libnetcdff-dev
-netcdf-bin
+#libnetcdf-dev
+#libnetcdff-dev
+#netcdf-bin
