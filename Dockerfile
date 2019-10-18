@@ -84,7 +84,7 @@ RUN conda install --quiet --yes \
     'r-sparklyr=1.0*' \
     'r-tidyverse=1.2*' \
     'rpy2=2.9*' \
-    'rlist' \
+    'r-rlist' \
     && \
     conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
