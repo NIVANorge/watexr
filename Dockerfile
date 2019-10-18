@@ -27,11 +27,10 @@ RUN apt-get update && \
     git \
     keychain \
     nco \  
-    libproj \
     proj-bin \
     proj-data \
     libproj-dev \
-    libgdal-dev &&\
+    libgdal-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Julia dependencies
