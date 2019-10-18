@@ -31,7 +31,7 @@ RUN apt-get update && \
     proj-bin \
     proj-data \
     libproj-dev \
-    libgdal-dev \
+    libgdal-dev &&\
     rm -rf /var/lib/apt/lists/*
 
 # Julia dependencies
