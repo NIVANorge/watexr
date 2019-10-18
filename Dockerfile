@@ -27,7 +27,7 @@ RUN apt-get update && \
     git \
     keychain \
     nco \  
-    libproj 
+    libproj \
     proj-bin \
     proj-data \
     libproj-dev \
