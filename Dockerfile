@@ -31,33 +31,9 @@ RUN apt-get update && \
     proj-bin \
     proj-data \
     gdal-bin \
-    proj-bin \
-    proj-data \
     libproj-dev \
     libgdal-dev && \
     rm -rf /var/lib/apt/lists/*
-
-# Julia dependencies
-# install Julia packages in /opt/julia instead of $HOME
-ENV JULIA_DEPOT_PATH=/opt/julia
-ENV JULIA_PKGDIR=/opt/julia
-ENV JULIA_VERSION=1.2.0
-
-RUN mkdir /opt/julia-${JULIA_VERSION} && \
-    cd /tmp && \
-    wget -q https://julialang-s3.julialang.org/bin/linux/x64/`echo ${JULIA_VERSION} | cut -d. -f 1,2`/julia-${JULIA_VERSION}-linux-x86_64.tar.gz && \
-    echo "926ced5dec5d726ed0d2919e849ff084a320882fb67ab048385849f9483afc47 *julia-${JULIA_VERSION}-linux-x86_64.tar.gz" | sha256sum -c - && \
-    tar xzf julia-${JULIA_VERSION}-linux-x86_64.tar.gz -C /opt/julia-${JULIA_VERSION} --strip-components=1 && \
-    rm /tmp/julia-${JULIA_VERSION}-linux-x86_64.tar.gz
-RUN ln -fs /opt/julia-*/bin/julia /usr/local/bin/julia
-
-# Show Julia where conda libraries are \
-RUN mkdir /etc/julia && \
-    echo "push!(Libdl.DL_LOAD_PATH, \"$CONDA_DIR/lib\")" >> /etc/julia/juliarc.jl && \
-    # Create JULIA_PKGDIR \
-    mkdir $JULIA_PKGDIR && \
-    chown $NB_USER $JULIA_PKGDIR && \
-    fix-permissions $JULIA_PKGDIR
 
 USER $NB_UID
 
@@ -89,60 +65,6 @@ RUN conda install --quiet --yes \
     'r-tidyverse=1.2*' \
     'rpy2=2.9*' \
     'r-rlist' \
-    && \
-    conda clean --all -f -y && \
-    fix-permissions $CONDA_DIR && \
-    fix-permissions /home/$NB_USER
-
-RUN R CMD javareconf
-
-RUN R -e 'devtools::install_github(c("SantanderMetGroup/loadeR.java", "SantanderMetGroup/loadeR"))'
-
-RUN R -e 'devtools::install_github("SantanderMetGroup/loadeR.ECOMS")'
-
-RUN R -e 'devtools::install_github("SantanderMetGroup/transformeR")'
-
-RUN R -e 'devtools::install_github("SantanderMetGroup/downscaleR")'
-
-RUN R -e 'devtools::install_github("SantanderMetGroup/convertR")'
-
-RUN R -e 'install.packages("vioplot",repos="http://cran.us.r-project.org")'
-
-RUN R -e 'devtools::install_github("SantanderMetGroup/visualizeR")'
-
-RUN R -e 'devtools::install_github("SantanderMetGroup/drought4R")'
-
-# Add Julia packages. Only add HDF5 if this is not a test-only build since
-# it takes roughly half the entire build time of all of the images on Travis
-# to add this one package and often causes Travis to timeout.
-#
-# Install IJulia as jovyan and then move the kernelspec out
-# to the system share location. Avoids problems with runtime UID change not
-# taking effect properly on the .local folder in the jovyan home dir.
-RUN julia -e 'import Pkg; Pkg.update()' && \
-    (test $TEST_ONLY_BUILD || julia -e 'import Pkg; Pkg.add("HDF5")') && \
-    julia -e "using Pkg; pkg\"add IJulia\"; pkg\"precompile\"" && \ 
-    # move kernelspec out of home \
-    mv $HOME/.local/share/jupyter/kernels/julia* $CONDA_DIR/share/jupyter/kernels/ && \
-    chmod -R go+rx $CONDA_DIR/share/jupyter && \
-    rm -rf $HOME/.local && \
-    fix-permissions $JULIA_PKGDIR $CONDA_DIR/share/jupyter
-    
-    
-RUN conda install --quiet --yes \
-    'xlrd' \
-    'cdsapi' \
-    'lxml' \
-    'psycopg2' \
-    'shapely[vectorized]' \
-    'pyyaml' \
-    'parse' \
-    'netCDF4' \
-    'xarray' \
-    'gmaps' \
-    'shapely' \
-    'geopandas' \
-    'nbgitpuller' \
     'r-bnlearn' \
     'r-corrplot' \
     'r-dismo' \
@@ -155,6 +77,18 @@ RUN conda install --quiet --yes \
     'r-reticulate' \
     'r-sp' \
     'r-visnetwork' \
+    'xlrd' \
+    'cdsapi' \
+    'lxml' \
+    'psycopg2' \
+    'shapely[vectorized]' \
+    'pyyaml' \
+    'parse' \
+    'netCDF4' \
+    'xarray' \
+    'gmaps' \
+    'geopandas' \
+    'nbgitpuller' \
     'dask_labextension' \
     'jupyterlab_code_formatter' \
     'jupyterlab-git' \
@@ -162,12 +96,11 @@ RUN conda install --quiet --yes \
     'ipympl' \
     'pyproj' \
     'geopy' \
-    'geopandas' \
     && \
     conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
-    
+
 RUN jupyter serverextension enable --py jupyterlab_git --sys-prefix && \
     jupyter serverextension enable --py jupyterlab_code_formatter && \
     jupyter serverextension enable --py --sys-prefix dask_labextension && \
@@ -188,8 +121,8 @@ RUN jupyter labextension install @jupyterlab/vega3-extension --no-build && \
     jupyter labextension install @ryantam626/jupyterlab_code_formatter --no-build && \
     jupyter labextension install jupyterlab-drawio --no-build && \
     jupyter lab clean && \
-        jupyter lab build && \
-        jupyter lab clean
+    jupyter lab build && \
+    jupyter lab clean
         
 USER root
 
@@ -253,6 +186,26 @@ RUN cd /opt/code-server/extensions/ && \
     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "VisualStudioExptTeam.vscodeintellicode-1.1.6.vsix" > /dev/null 2>&1 && \
     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "language-julia-0.12.3.vsix" > /dev/null 2>&1 && \
     cd $HOME    
+
+# Watexr R packages ==============================================================================
+
+RUN R CMD javareconf
+
+RUN R -e 'devtools::install_github(c("SantanderMetGroup/loadeR.java", "SantanderMetGroup/loadeR"))'
+
+RUN R -e 'devtools::install_github("SantanderMetGroup/loadeR.ECOMS")'
+
+RUN R -e 'devtools::install_github("SantanderMetGroup/transformeR")'
+
+RUN R -e 'devtools::install_github("SantanderMetGroup/downscaleR")'
+
+RUN R -e 'devtools::install_github("SantanderMetGroup/convertR")'
+
+RUN R -e 'install.packages("vioplot",repos="http://cran.us.r-project.org")'
+
+RUN R -e 'devtools::install_github("SantanderMetGroup/visualizeR")'
+
+RUN R -e 'devtools::install_github("SantanderMetGroup/drought4R")'
 
 
 user $NB_UID
