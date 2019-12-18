@@ -87,15 +87,15 @@ RUN conda install --quiet --yes \
     'netCDF4' \
     'xarray' \
     'gmaps' \
-    'geopandas' \
-    'nbgitpuller' \
-    'dask_labextension' \
-    'jupyterlab_code_formatter' \
-    'jupyterlab-git' \
-    'ipyleaflet' \
-    'ipympl' \
-    'pyproj' \
-    'geopy' \
+#    'geopandas' \
+#    'nbgitpuller' \
+#    'dask_labextension' \
+#    'jupyterlab_code_formatter' \
+#    'jupyterlab-git' \
+#    'ipyleaflet' \
+#    'ipympl' \
+#    'pyproj' \
+#    'geopy' \
     && \
     conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
