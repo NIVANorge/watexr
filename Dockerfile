@@ -77,16 +77,16 @@ RUN conda install --quiet --yes \
     'r-reticulate' \
     'r-sp' \
     'r-visnetwork' \
-    'xlrd' \
-    'cdsapi' \
-    'lxml' \
-    'psycopg2' \
-    'shapely[vectorized]' \
-    'pyyaml' \
-    'parse' \
-    'netCDF4' \
-    'xarray' \
-    'gmaps' \
+#    'xlrd' \
+#    'cdsapi' \
+#    'lxml' \
+#    'psycopg2' \
+#    'shapely[vectorized]' \
+#    'pyyaml' \
+#    'parse' \
+#    'netCDF4' \
+#    'xarray' \
+#    'gmaps' \
 #    'geopandas' \
 #    'nbgitpuller' \
 #    'dask_labextension' \
