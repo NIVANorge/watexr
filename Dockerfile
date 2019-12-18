@@ -39,31 +39,31 @@ USER $NB_UID
 
 # R packages including IRKernel which gets installed globally.
 RUN conda install --quiet --yes \
-    'r-base=3.6.1' \
+    'r-base' \
     'r-core' \
     'r-recommended' \
     'r-rjava' \
     'r-udunits2' \
     'r-tcltk2' \
-    'r-caret=6.0*' \
-    'r-crayon=1.3*' \
-    'r-devtools=2.1*' \
-    'r-forecast=8.7*' \
-    'r-hexbin=1.27*' \
-    'r-htmltools=0.3*' \
-    'r-htmlwidgets=1.3*' \
-    'r-irkernel=1.0*' \
-    'r-nycflights13=1.0*' \
-    'r-plyr=1.8*' \
-    'r-randomforest=4.6*' \
-    'r-rcurl=1.95*' \
-    'r-reshape2=1.4*' \
-    'r-rmarkdown=1.14*' \
-    'r-rsqlite=2.1*' \
-    'r-shiny=1.3*' \
-    'r-sparklyr=1.0*' \
-    'r-tidyverse=1.2*' \
-    'rpy2=2.9*' \
+    'r-caret' \
+    'r-crayon' \
+    'r-devtools' \
+    'r-forecast' \
+    'r-hexbin' \
+    'r-htmltools' \
+    'r-htmlwidgets' \
+    'r-irkernel' \
+    'r-nycflights13' \
+    'r-plyr' \
+    'r-randomforest' \
+    'r-rcurl' \
+    'r-reshape2' \
+    'r-rmarkdown' \
+    'r-rsqlite' \
+    'r-shiny' \
+    'r-sparklyr' \
+    'r-tidyverse' \
+    'rpy2' \
     'r-rlist' \
     'r-bnlearn' \
     'r-corrplot' \
