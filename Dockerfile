@@ -37,9 +37,6 @@ RUN apt-get update && \
 
 RUN conda update conda
 RUN conda update -n base conda
-
-USER $NB_UID
-
 # R packages including IRKernel which gets installed globally.
 RUN conda install --quiet --yes \
     'r-base' \
@@ -104,6 +101,8 @@ RUN conda install --quiet --yes \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
+USER $NB_UID
+
 RUN jupyter serverextension enable --py jupyterlab_git --sys-prefix && \
     jupyter serverextension enable --py jupyterlab_code_formatter && \
     jupyter serverextension enable --py --sys-prefix dask_labextension && \
@@ -150,7 +149,6 @@ RUN pip install google.cloud
 
 # Visual Studio Code ==============================================================================
 # Based on https://github.com/radiant-rstats/docker
-USER root
 ENV CODE_SERVER="2.1692-vsc1.39.2"
 
 RUN mkdir /opt/code-server && \
