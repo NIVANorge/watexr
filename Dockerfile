@@ -36,7 +36,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN conda update conda
-RUN conda update anaconda
+RUN conda update -n base conda
 
 USER $NB_UID
 
@@ -50,55 +50,55 @@ RUN conda install --quiet --yes \
     'r-tcltk2' \
     'r-caret' \
     'r-crayon' \
-#     'r-devtools' \
-#     'r-forecast' \
-#     'r-hexbin' \
-#     'r-htmltools' \
-#     'r-htmlwidgets' \
-#     'r-irkernel' \
-#     'r-nycflights13' \
-#     'r-plyr' \
-#     'r-randomforest' \
-#     'r-rcurl' \
-#     'r-reshape2' \
-#     'r-rmarkdown' \
-#     'r-rsqlite' \
-#     'r-shiny' \
-#     'r-sparklyr' \
-#     'r-tidyverse' \
-#     'rpy2' \
-#     'r-rlist' \
-#     'r-bnlearn' \
-#     'r-corrplot' \
-#     'r-dismo' \
-#     'r-essentials' \
-#     'r-formatr' \
-#     'r-misctools' \
-#     'r-mumin' \
-#     'r-raster' \
-#     'r-rgdal' \
-#     'r-reticulate' \
-#     'r-sp' \
-#     'r-visnetwork' \
-#    'xlrd' \
-#    'cdsapi' \
-#    'lxml' \
-#    'psycopg2' \
-#    'shapely[vectorized]' \
-#    'pyyaml' \
-#    'parse' \
-#    'netCDF4' \
-#    'xarray' \
-#    'gmaps' \
-#    'geopandas' \
-#    'nbgitpuller' \
-#    'dask_labextension' \
+    'r-devtools' \
+    'r-forecast' \
+    'r-hexbin' \
+    'r-htmltools' \
+    'r-htmlwidgets' \
+    'r-irkernel' \
+    'r-nycflights13' \
+    'r-plyr' \
+    'r-randomforest' \
+    'r-rcurl' \
+    'r-reshape2' \
+    'r-rmarkdown' \
+    'r-rsqlite' \
+    'r-shiny' \
+    'r-sparklyr' \
+    'r-tidyverse' \
+    'rpy2' \
+    'r-rlist' \
+    'r-bnlearn' \
+    'r-corrplot' \
+    'r-dismo' \
+    'r-essentials' \
+    'r-formatr' \
+    'r-misctools' \
+    'r-mumin' \
+    'r-raster' \
+    'r-rgdal' \
+    'r-reticulate' \
+    'r-sp' \
+    'r-visnetwork' \
+    'xlrd' \
+    'cdsapi' \
+    'lxml' \
+    'psycopg2' \
+    'shapely[vectorized]' \
+    'pyyaml' \
+    'parse' \
+    'netCDF4' \
+    'xarray' \
+    'gmaps' \
+    'geopandas' \
+    'nbgitpuller' \
+    'dask_labextension' \
     'jupyterlab_code_formatter' \
     'jupyterlab-git' \
-#    'ipyleaflet' \
-#    'ipympl' \
-#    'pyproj' \
-#    'geopy' \
+    'ipyleaflet' \
+    'ipympl' \
+    'pyproj' \
+    'geopy' \
     && \
     conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
