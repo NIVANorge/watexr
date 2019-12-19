@@ -37,7 +37,8 @@ RUN apt-get update && \
 
 RUN conda update conda
 RUN conda update -n base conda
-# R packages including IRKernel which gets installed globally.
+
+#Python and R packages that get a global install
 RUN conda install --quiet --yes \
     'r-base' \
     'r-core' \
