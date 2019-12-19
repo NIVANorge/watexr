@@ -43,10 +43,10 @@ RUN conda install --quiet --yes \
     'r-core' \
     'r-recommended' \
     'r-rjava' \
-#     'r-udunits2' \
-#     'r-tcltk2' \
-#     'r-caret' \
-#     'r-crayon' \
+    'r-udunits2' \
+    'r-tcltk2' \
+    'r-caret' \
+    'r-crayon' \
 #     'r-devtools' \
 #     'r-forecast' \
 #     'r-hexbin' \
@@ -90,8 +90,8 @@ RUN conda install --quiet --yes \
 #    'geopandas' \
 #    'nbgitpuller' \
 #    'dask_labextension' \
-#    'jupyterlab_code_formatter' \
-#    'jupyterlab-git' \
+    'jupyterlab_code_formatter' \
+    'jupyterlab-git' \
 #    'ipyleaflet' \
 #    'ipympl' \
 #    'pyproj' \
