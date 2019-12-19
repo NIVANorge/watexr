@@ -190,10 +190,10 @@ ENV CODE_WORKINGDIR="${CODE_WORKINGDIR}" \
 #RUN echo "CODE_EXTENSIONS_DIR=${CODE_EXTENSIONS_DIR}" >> /etc/R/Renviron.site
 
 # Setup for code-server
-COPY ../../home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/jupyter_notebook_config.py /etc/jupyter/
-COPY ../../home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/mages/vscode.svg /opt/code-server/vscode.svg
-COPY ../../home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/settings.json /opt/code-server/settings.json
-COPY ../../home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/vsix/*.vsix /opt/code-server/extensions/
+COPY jupyter_notebook_config.py /etc/jupyter/
+COPY images/vscode.svg /opt/code-server/vscode.svg
+COPY settings.json /opt/code-server/settings.json
+COPY vsix/*.vsix /opt/code-server/extensions/
 
 # Required for coenraads.bracket-pair-colorizer
 # RUN npm i -g prismjs vscode vscode-uri escape-html
