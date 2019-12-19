@@ -35,6 +35,9 @@ RUN apt-get update && \
     libgdal-dev && \
     rm -rf /var/lib/apt/lists/*
 
+RUN conda updata conda
+RUN conda update anaconda
+
 USER $NB_UID
 
 # R packages including IRKernel which gets installed globally.
