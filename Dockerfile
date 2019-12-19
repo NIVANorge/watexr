@@ -151,44 +151,44 @@ RUN pip install google.cloud
 # Visual Studio Code ==============================================================================
 # Based on https://github.com/radiant-rstats/docker
 USER root
-ENV CODE_SERVER="1.1156-vsc1.33.1"
+# ENV CODE_SERVER="1.1156-vsc1.33.1"
 
-RUN mkdir /opt/code-server && \
-    cd /opt/code-server && \
-    wget -qO- https://github.com/cdr/code-server/releases/download/${CODE_SERVER}/code-server${CODE_SERVER}-linux-x64.tar.gz | tar zxvf - --strip-components=1
+# RUN mkdir /opt/code-server && \
+#     cd /opt/code-server && \
+#     wget -qO- https://github.com/cdr/code-server/releases/download/${CODE_SERVER}/code-server${CODE_SERVER}-linux-x64.tar.gz | tar zxvf - --strip-components=1
 
-# Locations to store vscode / code-server settings
-ARG CODE_WORKINGDIR="/home/$NB_USER" 
-ENV CODE_WORKINGDIR="${CODE_WORKINGDIR}" \
-    CODE_USER_DATA_DIR="/home/$NB_USER/.niva_dst/share/code-server" \
-    CODE_EXTENSIONS_DIR="/home/$NB_USER/.niva_dst/share/code-server/extensions" \
-    CODE_BUILTIN_EXTENSIONS_DIR="/opt/code-server/extensions" \
-    PATH=/opt/code-server:$PATH
+# # Locations to store vscode / code-server settings
+# ARG CODE_WORKINGDIR="/home/$NB_USER" 
+# ENV CODE_WORKINGDIR="${CODE_WORKINGDIR}" \
+#     CODE_USER_DATA_DIR="/home/$NB_USER/.niva_dst/share/code-server" \
+#     CODE_EXTENSIONS_DIR="/home/$NB_USER/.niva_dst/share/code-server/extensions" \
+#     CODE_BUILTIN_EXTENSIONS_DIR="/opt/code-server/extensions" \
+#     PATH=/opt/code-server:$PATH
 
-# Make environment variable available from Rstudio
-#RUN echo "CODE_EXTENSIONS_DIR=${CODE_EXTENSIONS_DIR}" >> /etc/R/Renviron.site
+# # Make environment variable available from Rstudio
+# #RUN echo "CODE_EXTENSIONS_DIR=${CODE_EXTENSIONS_DIR}" >> /etc/R/Renviron.site
 
-# Setup for code-server
-COPY /home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/jupyter_notebook_config.py /etc/jupyter/
-COPY /home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/mages/vscode.svg /opt/code-server/vscode.svg
-COPY /home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/settings.json /opt/code-server/settings.json
-COPY /home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/vsix/*.vsix /opt/code-server/extensions/
+# # Setup for code-server
+# COPY /home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/jupyter_notebook_config.py /etc/jupyter/
+# COPY /home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/mages/vscode.svg /opt/code-server/vscode.svg
+# COPY /home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/settings.json /opt/code-server/settings.json
+# COPY /home/jose-luis/Downloads/niva_datasci_toolkit-master/jupyterhub_base/vsix/*.vsix /opt/code-server/extensions/
 
-# Required for coenraads.bracket-pair-colorizer
-# RUN npm i -g prismjs vscode vscode-uri escape-html
+# # Required for coenraads.bracket-pair-colorizer
+# # RUN npm i -g prismjs vscode vscode-uri escape-html
 
-# Install VSCode extensions
-RUN cd /opt/code-server/extensions/ && \
-    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "vscode-icons-team.vscode-icons" > /dev/null 2>&1 && \
-#    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "coenraads.bracket-pair-colorizers" > /dev/null 2>&1 && \
-    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "christian-kohler.path-intellisense-1.4.2.vsix" > /dev/null 2>&1 && \
-    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "eamodio.gitlens-9.8.5.vsix" > /dev/null 2>&1 && \
-    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "Ikuyadeu.r-1.0.9.vsix" > /dev/null 2>&1 && \
-    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "ms-python.python-2019.6.24221.vsix" > /dev/null 2>&1 && \
-    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "REditorSupport.r-lsp-0.1.0.vsix" > /dev/null 2>&1 && \
-    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "VisualStudioExptTeam.vscodeintellicode-1.1.6.vsix" > /dev/null 2>&1 && \
-    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "language-julia-0.12.3.vsix" > /dev/null 2>&1 && \
-    cd $HOME    
+# # Install VSCode extensions
+# RUN cd /opt/code-server/extensions/ && \
+#     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "vscode-icons-team.vscode-icons" > /dev/null 2>&1 && \
+# #    code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "coenraads.bracket-pair-colorizers" > /dev/null 2>&1 && \
+#     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "christian-kohler.path-intellisense-1.4.2.vsix" > /dev/null 2>&1 && \
+#     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "eamodio.gitlens-9.8.5.vsix" > /dev/null 2>&1 && \
+#     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "Ikuyadeu.r-1.0.9.vsix" > /dev/null 2>&1 && \
+#     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "ms-python.python-2019.6.24221.vsix" > /dev/null 2>&1 && \
+#     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "REditorSupport.r-lsp-0.1.0.vsix" > /dev/null 2>&1 && \
+#     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "VisualStudioExptTeam.vscodeintellicode-1.1.6.vsix" > /dev/null 2>&1 && \
+#     code-server --extensions-dir  $CODE_EXTENSIONS_DIR --install-extension "language-julia-0.12.3.vsix" > /dev/null 2>&1 && \
+#     cd $HOME    
 
 # Watexr R packages ==============================================================================
 
