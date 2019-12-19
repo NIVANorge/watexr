@@ -151,7 +151,7 @@ RUN pip install google.cloud
 # Visual Studio Code ==============================================================================
 # Based on https://github.com/radiant-rstats/docker
 USER root
-ENV CODE_SERVER="2.1692-vsc1.39.2"
+ENV CODE_SERVER="1.1156-vsc1.33.1"
 
 RUN mkdir /opt/code-server && \
     cd /opt/code-server && \
