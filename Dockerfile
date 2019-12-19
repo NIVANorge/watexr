@@ -166,7 +166,7 @@ ENV CODE_WORKINGDIR="${CODE_WORKINGDIR}" \
     PATH=/opt/code-server:$PATH
 
 # Make environment variable available from Rstudio
-RUN echo "CODE_EXTENSIONS_DIR=${CODE_EXTENSIONS_DIR}" >> /etc/R/Renviron.site
+#RUN echo "CODE_EXTENSIONS_DIR=${CODE_EXTENSIONS_DIR}" >> /etc/R/Renviron.site
 
 # Setup for code-server
 COPY jupyter_notebook_config.py /etc/jupyter/
