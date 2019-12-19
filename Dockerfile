@@ -212,6 +212,6 @@ RUN cd /opt/code-server/extensions/ && \
     cd $HOME    
 
 
-RUN rm -rf /tmp/*
+
 
 user $NB_UID
